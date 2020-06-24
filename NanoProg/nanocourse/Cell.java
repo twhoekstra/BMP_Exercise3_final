@@ -16,10 +16,11 @@ public class Cell extends Floater {
     int deathChance = 10000; // The probability of dying is 1/"deathChance"
     int growthStep = 2; // How much the cell can grow at once
     int growthChance = 50;// The probability of growing is 1/"growthChance"
-    int releaseChance = 20;
+    int releaseChance = 60;
     
-    int threshold1to2 = 70;
-    int threshold2to3 = 20;
+    int threshold1to2 = 70; // Morphogen concentrations to change type
+    int threshold2to3 = 25;
+    int maxNeighbours = 2;
     
     // Stores what type of cell this cell is.
     int type; 
@@ -122,7 +123,7 @@ public class Cell extends Floater {
              * has the space to divide. If so, it'll follow through.
              */
             if (radius >= maxRad){
-                if (checkConcentration(neighbors, maxRad, true) < 2){
+                if (checkConcentration(neighbors, maxRad, true) < maxNeighbours){
                     //Main program will handle the final division
                     return 1; // Pass information to main program
                 } 
