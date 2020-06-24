@@ -2,7 +2,7 @@
 
 ![](00sERFlr1k.png)
 
-Welcome to the repositiory for my submission for the BMP 2020 final,
+Welcome to the repository for my submission for the BMP 2020 final,
 
 ## A couple useful pieces of information:
 
