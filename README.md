@@ -7,6 +7,8 @@ Welcome to the repository for my submission for the BMP 2020 final,
 ## A couple useful pieces of information:
 
 - The main program is called "Exercise3_final.java" and can be found in BMP_Exercise3_final/NanoProg/nanocourse/Exercise3_final.java or by clicking the [on this link!](/NanoProg/nanocourse/Exercise3_final.java)
+- Cells are the most important object on screen, the code for these is [here!](/NanoProg/nanocourse/Cell.java)
+- Morphogens also play an essential role. Their program can be found [here!](/NanoProg/nanocourse/Morphogen.java)
 
 ## Background reading, from the original assignment:
 
