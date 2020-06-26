@@ -1,6 +1,6 @@
 # Final Exercise Biomolecular Programming: "differentiation of tissues during development"
 
-![](00sERFlr1k.png)
+![](DjLSUqy9xC.png)
 
 Welcome to the repository for my submission for the BMP 2020 final,
 
