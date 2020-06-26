@@ -32,7 +32,7 @@ public class Exercise3_final {
         // Defining the area where all the particles can move
         Frame frame = new Frame(15, 15, xSize - 15, ySize - 15);
         // Defining the area where the initial cells will be placed
-        Frame spawn = new Frame(frame.getX0(), frame.getY0(), frame.getX0() + 25,
+        Frame spawn = new Frame(frame.getX0(), frame.getY1()-50, frame.getX0()+50,
                 frame.getY1());
 
         // Initializing arrays that contain the cells and the morphogens
