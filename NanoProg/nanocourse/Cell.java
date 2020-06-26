@@ -15,11 +15,11 @@ public class Cell extends Floater {
     // Parameters
     int deathChance = 10000; // The probability of dying is 1/"deathChance"
     int growthStep = 2; // How much the cell can grow at once
-    int growthChance = 50;// The probability of growing is 1/"growthChance"
-    int releaseChance = 60;
+    int growthChance = 100;// The probability of growing is 1/"growthChance"
+    int releaseChance = 200;
     
-    int threshold1to2 = 70; // Morphogen concentrations to change type
-    int threshold2to3 = 25;
+    int threshold1to2 = 20; // Morphogen concentrations to change type
+    int threshold2to3 = 7;
     int maxNeighbours = 2;
     
     // Stores what type of cell this cell is.
@@ -54,8 +54,9 @@ public class Cell extends Floater {
      */
     public Cell(int id, double speed, int minRad, int maxRad, Frame spawnFrame){
         super(id, speed, minRad, maxRad, spawnFrame);
-        super.color = typeColors[0];
+        
         this.type = 0; // These cells are "original"
+        super.color = typeColors[type];
     }
     
     /**
@@ -74,6 +75,10 @@ public class Cell extends Floater {
      * morphogen release
      */
     public int stateMachine(){
+            if(!exists){
+                return 0;
+            }
+        
             // Check if the cell is going to die
             if (rnd.nextInt(deathChance) == 0){
                 // The main program will handle killing this cell
@@ -123,7 +128,7 @@ public class Cell extends Floater {
              * has the space to divide. If so, it'll follow through.
              */
             if (radius >= maxRad){
-                if (checkConcentration(neighbors, maxRad, true) < maxNeighbours){
+                if (checkConcentration(neighbors, 5, true) < maxNeighbours){
                     //Main program will handle the final division
                     return 1; // Pass information to main program
                 } 
@@ -208,5 +213,9 @@ public class Cell extends Floater {
      */
     public void setColor(int type){
         color = typeColors[type];
+    }
+    
+    public void setColor(Color color){
+        this.color = color;
     }
 }
