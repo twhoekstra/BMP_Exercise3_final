@@ -51,7 +51,7 @@ public class Floater {
         this.doesFrameCollide = false;
         this.id = id;
         this.speed = speed;
-        this.radius = minRad; //Spawn the smallest size
+        this.radius = maxRad; //Spawn the smallest size
         this.maxRad = maxRad;
         this.minRad = minRad;
         this.x = rnd.randXInFrame(spawnFrame, radius);
@@ -180,6 +180,10 @@ public class Floater {
      */
     public void advancedDiffuse() {
 
+        if(!exists){
+            return;
+        }
+        
         // Saving the current location of the floater, useful later on.
         double oldX = x;
         double oldY = y;
