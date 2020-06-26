@@ -24,7 +24,7 @@ public class Exercise3_final {
         ExtRandom rnd = new ExtRandom();
         
         // On-screen objects settings
-        int max_cells = 2500; // Maximum number of cells
+        int max_cells = 5000; // Maximum number of cells
         int n_cells = 50; // Initial amount of cells
         int max_morphogens = 10000; // Maximum number of morphogens
         int n_morphogens = 0; // Initial amount of morphogens
@@ -47,7 +47,7 @@ public class Exercise3_final {
          */
         for (int i = 0; i < max_cells; i++) {
             cells[i] = i < n_cells
-                    ? new Cell(i, 2, 6, 8 + rnd.nextInt(4), spawn)
+                    ? new Cell(i,1 , 6, 8 + rnd.nextInt(4), spawn)
                     : // Existing cells
                     new Cell(i, 2);  // "Non-existing" cells with ID and speed 2
 
@@ -74,7 +74,7 @@ public class Exercise3_final {
          */
         for (int i = 0; i < max_morphogens; i++) {
             // "Non-existing" cells
-            morphogens[i] = new Morphogen(i, 10, 2); //ID, speed and radius
+            morphogens[i] = new Morphogen(i,10, 2); //ID, speed and radius
 
             /*
              * This is where the core loop of the program starts. Note that 
@@ -139,7 +139,7 @@ public class Exercise3_final {
                                         cells[i].getMaxRad(), 
                                         cells[i].getX(), 
                                         cells[i].getY());
-                                cells[n_cells].setColor(cells[i].getType());
+                                cells[n_cells].setColor(cells[i].getColor());
                             }
                             n_cells++; // Keeping track of the new cells
                         }
@@ -151,15 +151,18 @@ public class Exercise3_final {
                          * location that is vacated by the dying cell
                          */
                         cells[i].animate(
-                                cells[i].getType(), 
+                                cells[n_cells - 1].getType(), 
                                 cells[n_cells - 1].getRadius(), 
                                 cells[n_cells - 1].getMaxRad(), 
                                 cells[n_cells - 1].getX(), 
                                 cells[n_cells - 1].getY()); 
+                        cells[i].setColor(cells[n_cells - 1].getColor());
+                        
                         /*
                          * Now we've swapped the two cells we can kill a cell
                          */
                         cells[n_cells - 1].kill();
+                        
                         n_cells--; // Keeping track of the dying cells
                         break;
                         
