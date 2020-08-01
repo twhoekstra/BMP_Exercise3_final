@@ -21,7 +21,4 @@ Welcome to the repository for my submission for the BMP 2020 final,
 
 
 
-
-That's all for now,
-
-TWH
+That's all for now!
